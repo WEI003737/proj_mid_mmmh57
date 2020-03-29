@@ -1,0 +1,1432 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>index</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- fontawesome CSS -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <!-- animate.CSS CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+    <!-- google font CSS -->
+    <link href="https://fonts.googleapis.com/css?family=Baloo+Chettan+2&display=swap" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="lightslider-master/src/css/lightslider.css" />
+    
+    <style>
+        body{
+            font-family: 'Baloo Chettan 2', cursive;
+        }
+        .wrapper{
+            width: 1200px;
+            margin: 0 auto;
+        }
+        dl,ol,ul,li{
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        h1,h2,h3,h4,p{
+            word-break: break-all;
+        }
+        h1{
+            font-size: 60px;
+        }
+        h2{
+            font-size: 48px;
+        }
+        h3{
+            font-size: 36px;
+        }
+        h4{
+            font-size: 24px;
+        }
+        p{
+            font-size: 16px;
+        }
+        .cursor{
+            cursor: pointer;
+        }
+        .object-fit{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            overflow: hidden;
+        }
+    /*break*/
+        .break{
+            height: 60px;
+        }
+    
+    /*header*/
+        .header{
+            height: 120px;
+            width: 100%;
+            padding: 0 40px 0 20px;
+            color: #fff;
+            text-shadow: 0 0 5px rgb(27, 27, 27);
+            background: linear-gradient(to bottom, rgba(255,255,255,1), rgba(255,255,255,0));
+            z-index: 1000;
+            transition: .5s;
+        }
+        .header.active{
+            transform: translateY(-160px);
+            background: transparent;
+        }
+        .logo .fas,
+        .logo-fix .fas{
+            color: #fff;
+            filter: drop-shadow(0 0 3px #fff);
+            margin-right: 20px;
+            padding-top: 5px;
+        }
+        .logo .head-title:hover{
+            transform: translateY(-3px);
+        }
+        .nav-header li{
+            margin: 15px 20px auto 20px;
+            font-size: 20px;
+            cursor: pointer;
+            transition: 1s;
+        }
+        .nav-header li:hover{
+            transform: translateY(-3px);
+            color: #ffae00;
+        }
+        .nav-header li:nth-child(1),
+        .nav-header li:nth-child(2),
+        .nav-header li:nth-child(3){
+            transform: translateY(-60px);
+            opacity: 0;
+        }
+        .nav-header li:nth-child(1).active,
+        .nav-header li:nth-child(2).active,
+        .nav-header li:nth-child(3).active{
+            transform: translateY(0);
+            opacity: 1;
+        }
+        .bar{
+            width: 36px;
+            height: 4px;
+            background: #fff;
+            filter: drop-shadow(0 0 2px rgb(128, 128, 128));
+            margin: 6px 0;
+            border-radius: 2px;
+            transition: .5s;
+        }
+        .active .bar1{
+            width: 18px;
+            -webkit-transform: rotate(-45deg) translate(0, 4px) ;
+            transform: rotate(-45deg) translate(0, 4px) ;
+        }
+        .active .bar2{
+            opacity: 0;
+        }
+        .active .bar3{
+            width: 19px;
+            -webkit-transform: rotate(45deg) translate(0, -4px) ;
+            transform: rotate(45deg) translate(0, -4px) ;
+        }
+    /*why:z-line調不動--> Ans:最外層級z-line往上*/
+        .logo-fix .fas{ /*樣式寫在 .logo .fas*/
+            position: fixed;
+            padding-left: 20px;
+            text-shadow: 0 0 5px rgb(27, 27, 27);
+            z-index: 999;
+        }
+     /*landing-page*/
+        .landing-page{
+            -webkit-animation: fadeIn 1.5s linear;
+            animation-fill-mode: forwards;
+        }   
+    /*leading page*/
+        .slogan{
+            color: #fff;
+            text-shadow: 0 0 5px #ccc;
+            font-size: 86px;
+            margin-top: 20vh;
+            left: 0;
+            right: 0;
+            text-align: center;
+            opacity: 0;
+            -webkit-animation: fadeIn 2s linear ;
+            animation-fill-mode: forwards;
+            -webkit-animation-delay:.5s;
+
+        }
+        .slogan br{
+            display: none;
+        }
+    
+        .main-img{
+            width: 100%;
+            height: 100vh;
+        }
+        .main-img .main{
+            width: 100%;
+            height: 80vh;
+        }
+        .main-img .totem{
+            height: 3vh;
+            opacity: .5;
+        }
+        .main-bar{
+            height: 17vh;
+            text-align: center;
+        }
+        .main-bar .fas{
+            line-height: 20vh;
+            color: #ccc;
+            transition: 1s;
+            -webkit-animation: wave 1.5s linear infinite ;
+        }
+        @keyframes wave {
+            0%{
+                transform: translateY(5px);
+                opacity: 1; 
+            }
+            50%{
+                transform: translateY(0);  
+                opacity: .5;
+            }
+            100%{
+                transform: translateY(5px);
+                opacity: 1;
+            }
+        }
+        /* rwd menu */
+        .landing-page .overlay{
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, .9);
+            padding-top: 50%;
+            position: fixed;
+            z-index: 999;
+            transform: translateX(-100%);
+            display: none;
+        }
+        .landing-page .overlay.active{
+            display: block;
+        }
+        .landing-page .overlay li{
+            font-size: 48px;
+            color: #fff;
+            text-align: center;
+            position: relative;
+            z-index: 999;
+            transform: translateX(-150%);
+            
+        }
+
+        .leaf{
+            height: 350px;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            opacity: 0;
+            z-index: 5;
+            -webkit-animation: fadeInLeaf 2s linear ;
+            animation-fill-mode: forwards;
+            -webkit-animation-delay: 1s;
+        }
+        @keyframes fadeIn {
+            0%{
+                opacity: 0; 
+            }50%{
+                opacity: .75;
+            }100%{
+                opacity: 1;
+            }
+        }
+        @keyframes fadeInLeaf {
+            0%{
+                opacity: 0; 
+            }50%{
+                opacity: .35;
+            }100%{
+                opacity: .5;
+            }
+        }
+        @media all and (max-width: 768px){
+            .header{
+                padding-right: 20px;
+            }
+            .nav-header li{
+                margin: 15px 10px auto;
+            }
+            .slogan br{
+                display: inline;
+            }
+            .main-img .main{
+                height: 85vh;
+            }
+            .main-img .totem{
+                height: 3vh;
+            }
+            .main-bar{
+                height: 7vh;
+            }
+            .main-bar .fas{
+                line-height: 7vh;
+            }
+            .leaf{
+                height: 200px;
+            }
+        }
+        @media all and (max-width: 576px){
+            .nav-header li:nth-child(1),
+            .nav-header li:nth-child(2),
+            .nav-header li:nth-child(3){
+                display: none;
+            }
+            .slogan{
+                font-size: 48px;
+                margin-top: 30vh;
+            }
+            .landing-page .overlay{
+                transform: translateY(0);
+            }
+            .landing-page .overlay li{
+                transform: translateY(0);
+            }
+            .leaf{
+                height: 130px;
+            }
+        }
+    /*nz-intro*/
+        .bg-nz-intro{
+            width: 100%;
+            background: url(images/nz-intro.png) no-repeat center center;
+            background-size: cover;
+        }
+        .bg-nz-intro .wrapper{
+            padding-top: 240px;
+        }
+    
+        .title,
+        .spot-title{
+            color: #ffffff;
+            text-shadow: 0 0 5px #ccc;
+            text-align: center;
+            margin: 50px 0;
+            position: absolute;
+            left: 0;
+            right: 0;
+        }
+        .title hr,
+        .spot-title hr{
+            width: 50px;
+            border: 2px solid #ffae00;
+            margin: 0 auto;
+        }
+        .nz-intro .title br{
+            display: none;
+        }
+        .nz-intro li{
+            display: flex;
+        }
+        .nz-intro .article{
+            width: 30%;
+            color: #ffffff;
+            text-shadow: 0 0 5px #ccc;
+            text-align: center;
+            margin: 0 auto 250px auto;
+            padding: 20px;
+        }
+        .nz-intro .article hr{
+            width: 50%;
+            border: 2px solid #ffae00;
+            margin: 30px auto;
+        }
+        @media all and (max-width: 1200px){
+            .wrapper{
+                width: 100%;
+            }
+        }
+        @media all and (max-width: 768px) {
+            .bg-nz-intro{
+                background-position: right bottom;
+            }
+            .nz-intro li{
+                display: block;
+            }
+            .nz-intro .article{
+                width: 80vw;
+                margin: 0 auto;
+                padding: 0;
+            }
+            .nz-intro .article:first-child{
+                padding-top: 60px;
+            }
+            .nz-intro .article:last-child{
+                padding-bottom: 30px;
+            }
+            
+        }
+        @media all and (max-width: 576px) {
+            .bg-nz-intro{
+                background-position: center bottom;
+            }
+            .nz-intro .title br{
+                display: inline;
+            }
+            .nz-intro .article{                
+                padding: 20px 10px 20px;
+            }
+            .nz-intro .article:first-child{
+                padding-top: 20px;
+            }            
+            .nz-intro .article h4{
+                text-align: left;
+            }
+            .nz-intro .article hr{
+                display: none;
+            }
+        }
+    /*spot-intro*/
+        .bg-spot-intro{
+            width: 100%;
+            height: 700px;
+            background: url(images/spot-intro.JPG) no-repeat center center;
+            background-size: cover;
+        }
+        .bg-spot-intro
+         .wrapper{
+            width: 80vw;
+            padding-top: 250px;
+        }
+        .spot-intro{
+            width: 100%;
+            display: flex;
+        }
+        .spot-intro li{
+            width: 100%;
+            text-align: center;
+            z-index: 10;
+        }
+        .spot-intro li:hover{
+            transform: translateY(-5px);
+        }
+        .spot-intro a{
+            display: inline-block;
+            position: relative;
+            width: 150px;
+            height: 150px;
+            
+        }
+        .spot-intro img{
+            width: 150px;
+            z-index: 0;
+        }
+        .spot-intro span{
+            color: #fff;
+            text-shadow: o o 2px #ccc;
+            font-size: 24px;
+        }
+        
+        .spot-intro .circle{
+            width: 150px;
+            height: 150px;
+            border: 2px solid #fff;
+            border-radius: 50%;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+        .spot-intro li:hover .circle{
+            -webkit-animation: circle 1s linear infinite;
+        }
+        @keyframes circle {
+            0%{
+                transform: scale(1);
+                opacity: 1; 
+            }
+            50%{
+                transform: scale(1.2);  
+                opacity: .5;
+            }
+            100%{
+                transform: scale(1.4);
+                opacity: 0;
+            }
+        }
+        @media all and (max-width: 768px) {
+            .bg-spot-intro{
+                height: auto;
+            }
+            .wrapper{
+                padding-top: 200px;
+            }
+            .spot-intro{
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                grid-template-rows: 240px 240px;
+                justify-items: center;
+            }
+            .spot-intro span{
+                padding: 20px 0;
+            }
+            .icon-culture{
+                grid-column: 1 / 2;
+                grid-row: 1 / 2;
+            }
+            .icon-nature{
+                grid-column: 2 / 3;
+                grid-row: 1 / 2;
+            }
+            .icon-outdoor{
+                grid-column: 1 / 2;
+                grid-row: 2 / 3;
+            }
+            .icon-food{
+                grid-column: 2 / 3;
+                grid-row: 2 / 3;
+            }
+            
+        }
+        @media all and (max-width: 576px){
+            .bg-spot-intro{
+                height: auto;
+            }
+            .spot-intro{
+                display: block;
+            }
+            .spot-intro li{
+                height: 250px;
+            }
+        }
+    /*culture*/
+        .culture{
+            width: 100%;
+            height: 700px;
+            background: url(images/culture/culture.jpg) no-repeat center bottom;
+            background-size: cover;
+        }
+        .culture .block-set{
+            position: relative;
+            width: 40%;
+            height: 100%;
+        }
+        .culture .overlay{
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            background-color: rgba(0, 0, 0, .5);
+        }
+        .culture .title{
+            color: #fff;
+            text-align: left;
+            margin-left: 5vw;
+            line-height: 60px;
+        }
+        .culture .block-set div:nth-child(2){
+            font-size: 24px;
+        }
+        .culture .block-set div:nth-child(3){
+            font-size: 60px;
+            padding-top: 40px;
+        }
+        .culture p{
+            color: #fff;
+            font-size: 24px;
+            padding: 300px 60px 0;
+            position: relative;
+        }
+
+        .culture .btn{
+            width: 30%;
+            border-radius: 0;
+            position: relative;
+            margin-left: 70%;
+            margin-top: 20px;
+            z-index: 10;
+        }
+        .culture .fas{
+            margin: 0 5px;
+        }
+        @media all and (max-width: 1200px){
+            .culture .block-set{
+                width: 60%;
+            }
+        }
+        @media all and (max-width: 768px){
+            .culture .block-set{
+                width: 75%;
+            }
+            .culture .block-set div:nth-child(2){
+                font-size: 24px;
+            }
+            .culture .block-set div:nth-child(3){
+                font-size: 48px;
+                line-height: 48px;
+            }
+            .culture p{
+            font-size: 20px;
+            padding: 300px 30px 0;
+            }
+            .culture .btn{
+                width: 100%;
+                margin-left: 0;
+            }
+        }
+        @media all and (max-width: 576px){
+            .culture{
+                padding: 130px 0;
+                height: auto;
+            }
+            .culture .block-set{
+                width: 100%;
+                height: 65%;
+            }
+            .culture .btn{
+                width: 100%;
+                margin-left: 0;
+                font-size: 24px;
+            }
+        }
+    /*nature*/
+        .nature{
+            width: 100%;
+            background: #ffffff;
+        }
+        .nature .totem img{
+            height: 20px;
+        }
+        .nature .spot-title{
+            color: #000;
+            font-size: 48px;
+        }
+        .nature .wrapper{
+            width: 100%;
+            padding: 150px 0;
+        }
+        .nature .block-set{
+          position: relative;
+          margin: 0 auto;
+        }
+        .nature ul {
+            list-style: none outside none;
+            padding-left: 0;
+            margin-bottom:0;
+        }
+        .nature li {
+            display: block;
+            margin-right: 6px;
+            cursor:pointer;
+            position: relative;
+        }
+        .nature img {
+            display: block;
+            width: 100%;
+            overflow: hidden;
+        }
+        .nature.break{
+            display: none;
+        }
+    /*outdoor*/
+        .outdoor{
+            width: 100%;
+            height: 700px;
+            display: flex;
+        }
+       
+        .outdoor .img{
+            height: 100%;
+            padding: 0;
+            overflow: hidden;
+        }
+        
+        .outdoor .img-1{
+            width: 25%;
+            background: url(images/outdoor/outdoor-1.jpg) no-repeat center center;
+            background-size: cover;
+            transition: .5s;
+        }
+        .outdoor .img-2{
+            width: 25%;
+            background: url(images/outdoor/outdoor-2.jpg) no-repeat center center;
+            background-size: cover;
+        }
+        .outdoor .img-3{
+            width: 25%;
+            background: url(images/outdoor/outdoor-3.jpg) no-repeat center center;
+            background-size: cover;
+        }
+        .outdoor .spot-title{
+            width: 25%;
+            background: rgba(0, 0, 0, 1);
+            position: relative;
+            margin: 0;
+            padding: 10% 30px 0;
+        }
+        .outdoor .spot-title p{
+            text-align: left;
+            margin-top: 30px;
+        }
+        .outdoor .btn{
+            width: 50%;
+            border-radius: 0;
+            position: absolute;
+            margin-top: 20px;
+            margin: auto;
+            left: 0;
+            right: 0;
+        }
+
+        @media all and (max-width: 1200px){
+            .outdoor .spot-title{
+                padding: 5% 20px 0;
+            }
+        }
+        @media all and (max-width: 768px){
+            .outdoor .img-1{
+                display: none;
+            }
+            .outdoor .img-2,
+            .outdoor .img-3,
+            .outdoor .spot-title{
+                width: 33.4%;   
+            }
+            .outdoor .btn{
+                width: 100%;
+            }
+        }
+        @media all and (max-width: 576px){
+            .outdoor .overlay{
+                display: none;
+            }
+            .outdoor{
+                height: auto;
+                display: grid;
+                grid-template-columns: 1fr 2fr;
+                grid-template-rows:auto 300px;
+                /* justify-items: center; */
+            }
+            .outdoor .img-2{
+                grid-column: 1 / 2;
+                grid-row: 2 / 3;
+                width: 100%;
+                background-position: top center;
+            }
+            .outdoor .img-3{
+                grid-column: 2 / 3;
+                grid-row: 2 / 3;
+                width: 100%;
+            }
+            .outdoor .spot-title{
+                grid-column: 1 / 3;
+                grid-row: 1 / 2;
+                width: 100%;
+                height:100%;
+            }
+            .outdoor .spot-title h3{
+                font-size: 36px;
+            }
+            .outdoor .spot-title p{
+                padding-bottom: 30px;
+            }
+            .outdoor .spot-title .btn{
+                margin: 0;
+                padding: 0;
+                font-size: 30px;
+            }
+        }
+    /*food*/
+        .food{
+            height: 700px;
+            background: url(images/bg-food.png) no-repeat center bottom;
+            background-size: bottom;
+        }
+        /*row top*/
+        .food .row-top{
+            height: 70%;
+            display: flex;
+        }
+        .food .img{
+            position: relative;
+            cursor: pointer;
+        }
+        .food .img:hover .overlay{
+            opacity: 0;
+        }
+        .food .overlay{
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, .5);
+            left: 0;
+            top: 0;
+            transition: .5s;
+            z-index: 9;
+        }
+        .food .title{
+            font-size: 72px;
+            color: #fff;
+            position: relative;
+            text-align:left;
+            line-height: 60px;
+            margin-top: 20%;
+            margin-left: 5%;
+            z-index: 10;
+        }
+        .food p{
+            color: #fff;
+            padding: 20px 30px 40px;
+            font-size: 24px;
+        }
+        .food .food-sm-title{
+            font-size: 48px;
+            color: #fff;
+            text-shadow: 0 0 5px #000;
+            position: relative;
+            z-index: 10;
+        }
+        .food .row-top .food-sm-title{
+            margin-top: 350px;
+        }
+        .food .img-0{
+            background: #000;
+            width: 33.4%;
+        }
+        .food .img-1{
+            background: url(images/food/food-1.jpg) no-repeat center center;
+            background-size: cover;
+            width: 33.4%;
+        }
+        .food .img-2{
+            background: url(images/food/food-2.jpg) no-repeat center center;
+            background-size: cover;
+            width: 33.4%;  
+        }
+        /*row bottom*/
+        .food .row-bottom{
+            height: 30%;
+            display: flex;
+        }
+        .food .row-bottom .food-sm-title{
+            margin-top: 125px;
+        }
+        .food .img-3{
+            background: url(images/food/food-3.jpg) no-repeat center center;
+            background-size: cover;  
+            width: 25%;
+        }
+        .food .img-4{
+            background: url(images/food/food-4.jpg) no-repeat center center;
+            background-size: cover;  
+            width: 25%;
+        }
+        .food .img-5{
+            background: url(images/food/food-5.jpg) no-repeat center center;
+            background-size: cover;  
+            width: 25%;
+        }
+        .food .img-6{
+            background: url(images/food/food-6.jpg) no-repeat center center;
+            background-size: cover;  
+            width: 25%;
+
+        }
+        @media all and (max-width: 1200px){
+            .food .title{
+                margin-top: 10%;
+                margin-bottom: 20px;
+            }
+        }
+        @media all and (max-width: 768px){
+            .food .title{
+                font-size: 48px;
+            }
+            .food p{
+                padding: 0 20px;
+            }
+            .food .food-sm-title{
+                font-size: 36px;
+            }
+            
+            .food .img-0{
+                width: 40%;
+            }
+            .food .img-1{
+                width: 60%;
+            }
+            .food .img-2,
+            .food .img-6{
+                display: none;
+            }
+            .food .img-3,
+            .food .img-4,
+            .food .img-5{
+                width: 33.4%;
+            }
+        }
+        @media all and (max-width: 576px){
+            .food{
+                height: auto;
+            }
+            .food .row-top{
+                height: 100%;
+                display: block;
+            }
+            .food .title{
+                height:100%;
+                padding: 30px 0;
+                margin: 0;
+                text-align: center;
+            }
+            .food .title br{
+                display: none;
+            }
+            .food .row-top .food-sm-title{
+                margin-top: 0;
+                padding: 0 20px;
+            }
+            .food p{
+                /* font-size: 24px;
+                padding: 20px 20px 40px; */
+                display: none;
+            }
+            .food .img{
+                width: 100%;
+                height: 120px;
+            }
+            .food .img-2,
+            .food .img-6{
+                display: block;
+            }
+            .food .row-bottom{
+                display: block;
+            }
+            .food .row-bottom .food-sm-title{
+                margin-top: 0;
+                padding: 0 20px;
+            }
+        }
+    /*info*/
+        .info{
+            width: 100%;
+            height: 400px;
+            background: #000;
+        }
+        .info ul{
+            width: 100%;
+            align-items: center;
+            text-align: center;
+            display: flex;
+        }
+        .info li{
+            width: 25%;
+            margin: 30px 0;
+        }
+        .info img{
+            width: 80%;
+            position: relative;
+            z-index: 10;
+        }
+        .info img:hover{
+            transform: translateY(-5px);
+        }
+        @media all and (max-width: 768px){
+            .info{
+                height: 600px;
+            }
+            .info .wrapper{
+                display: flex;
+                width: 100%;
+                padding-top: 40px ;
+            }
+            .info ul{
+                display: block;
+            }
+            .info li{
+                width: 100%;
+                height: 130px;
+                margin: 0;
+            }
+            .info img{
+                width: 70%;
+                height: 130px;
+                object-fit: contain;
+            }
+            
+        }
+       
+    /*top*/
+        .top{
+            right: 0;
+            bottom: 75px;
+            color: #ffffff;
+            text-align: center;
+            background: rgba(224, 224, 224, 0.3);
+            filter: drop-shadow(0 0 5px #ccc);
+            padding: 5px 10px;
+            position: fixed;
+            display: none;
+            z-index: 999;
+            transition: 1s;
+        }
+        .top:hover{
+            transform: translateY(-5px);
+            background: #ffae00;
+        }
+       
+    /*footer*/
+        .footer{
+            height: 60px;
+            background-color: #46699e;
+            color: #fff;
+            text-shadow: 0 0 5px rgb(27, 27, 27);
+        }
+        .nav-footer{
+            display: flex;
+            justify-content:space-between;
+        }
+        .nav-footer li{
+            margin: 15px 20px auto;
+            font-size: 20px;
+            cursor: pointer;
+            z-index: 10;
+        }
+        .footer div:last-child{
+            display: flex;
+        }
+        .nav-footer div:last-child li:hover{
+            transform: translateY(-3px);
+            color: #ffffff;
+        }
+        @media all and (max-width: 768px){
+            .nav-footer li{
+                margin: 15px 10px auto;
+            }
+        }
+        @media all and (max-width: 576px){
+            .footer{
+                padding: 5px 0 20px;
+                text-align: center;
+            }   
+            .nav-footer{
+                display: block;
+            }
+            .footer div:last-child{
+                display: none;
+            }
+        }
+    </style>
+  </head>
+  <body id="body" class="position-relative">
+<!-- header -->
+        <div class="header d-flex justify-content-between position-fixed">
+                <div class="logo d-flex cursor" data-page="body">
+                    <a><i class="fas fa-kiwi-bird fa-4x"></i></a>
+                    <div class="head-title">
+                        <h4>NEW<br>ZEALAND</h4>
+                    </div>
+                </div>
+                <nav class="nav-header d-flex">
+                    <li data-page="nz-intro" class="menu-move"><a>About</a></li>
+                    <li data-page="spot-intro"  class="menu-move"><a>Discover</a></li>
+                    <li data-page="info"  class="menu-move"><a>Information</a></li>
+                    <li>
+                        <div id="menu" class="menu">
+                        <div class="bar bar1"></div>
+                        <div class="bar bar2"></div>
+                        <div class="bar bar3"></div>
+                        </div>
+                    </li>
+                </nav>
+        </div>
+        <div class="logo-fix cursor" data-page="body"><a><i class="fas fa-kiwi-bird fa-4x"></i></a></div>
+<!-- landing page -->
+        <div class="landing-page position-relative">
+            
+        <!--rwd手機顯示  -->
+            <div class="overlay">
+                <li data-page="nz-intro"><a>About</a></li>
+                <li data-page="spot-intro"><a>Discover</a></li>
+                <li data-page="info"><a>Information</a></li>
+            </div>
+<!-- 背景圖片&銀蕨 -->
+            
+            <div class="main-img position-relative">
+                <h1 class="slogan position-absolute">purest natural<br>landscapes</h1>
+                <div class="main">
+                <img class="object-fit" src="images/bg2.jpg" alt=""></div>
+                <div class="totem"><img class="object-fit" src="icon/totem_black2.png" alt=""></div>
+                <div class="main-bar">
+                    <i class="fas fa-angle-down fa-4x"></i>
+                </div>
+                
+            </div>
+            <img class="leaf" src="images/leaf.png" alt="">
+
+            
+    </div>
+
+<!-- nz-intro -->
+    <div id="nz-intro" class="bg-nz-intro" data-page="nz-intro">
+        <div class="title">
+            <h2>About<br>New Zealand</h2>
+            <hr>
+        </div>
+        <div class="wrapper">
+            <div class="nz-intro"> 
+                <li>
+                    <div class="article">
+                        <h3>Position</h3>
+                        <h4>South Island in New Zealand hosts the purest natural landscapes you’ll ever experience.South Island in New Zealand.<br>South Island in New Zealand hosts the purest natural landscapes you’ll ever experience.South Island in New ZealandSouth Island in New Zealand hosts the purest natural landscapes you’ll ever experience.South Island</h4>
+                        <hr>
+                    </div>
+                    <div class="article">
+                        <h3>North Island</h3>
+                        <h4>South Island in New Zealand hosts the purest natural landscapes you’ll ever<br>experience.South Island in New Zealand.South Island in New Zealand hosts the purest natural landscapes you’ll ever experience.South Island in New ZealandSouth Island in New Zealand hosts the purest natural landscapes you’ll ever experience.South Island</h4>
+                        <hr>
+                    </div>
+                    <div class="article">
+                        <h3>South Island</h3>
+                        <h4>South Island in New Zealand hosts the purest natural landscapes you’ll ever experience.South Island in New Zealand.South Island in New Zealand hosts the purest natural landscapes you’ll<br>ever experience.South Island in New ZealandSouth Island in New Zealand hosts the purest natural landscapes you’ll ever experience.South Island</h4>
+                        <hr>
+                    </div>
+                </li>     
+            </div>
+        </div>
+    </div>
+
+<!-- spot-intro -->
+    <div id="spot-intro" class="bg-spot-intro" data-page="spot-intro">
+        <div class="title">
+            <h2>Discover</h2>
+            <hr>
+        </div>
+        <div class="wrapper"> 
+            <ul class="spot-intro">
+                <li class="icon-culture" data-icon="culture"><a>
+                    <img src="icon/culture.png" alt="">
+                    <span class="circle"></span>
+                    <span>CULTURE</span>
+                </a></li>
+                <li class="icon-nature" data-icon="nature"><a>
+                    <img src="icon/nature.png" alt="">
+                    <span class="circle"></span>
+                    <span>NATURE LOVERS</span>
+                </a></li>
+                <li  class="icon-outdoor" data-icon="outdoor"><a>
+                    <img src="icon/outdoor.png" alt="">
+                    <span class="circle"></span>
+                    <span>OUTDOOR ADVENTURE</span>
+                </a></li>
+                <li class="icon-food" data-icon="food"><a>
+                    <img src="icon/food.png" alt="">
+                    <span class="circle"></span>
+                    <span>FOOD</span>
+                </a></li>             
+                
+            </ul>
+        </div>
+    </div>
+    
+<!-- Culture -->
+    <div id="culture" class="culture">
+        <div class="block-set">
+            <div class="overlay"></div>
+            <div class="title">Read More About</div>
+            <div class="title">History<br>and Culture<br>in NZ</div>
+            <p>New Zealand has a very unique and dynamic culture. The culture of its indigenous Māori people affects the language, the arts, and even the accents of all New Zealanders.<br>Their place in the South Pacific, and their love of the outdoors, sport</p>
+            <div><a name="" id="" class="btn btn-info" href="#" role="button">MORE<i class="fas fa-chevron-right"></i></a></div>
+        </div>    
+    </div>
+
+<!-- Nature Lovers -->
+    <div id="nature" class="nature">
+        <div class="totem"><img src="icon/totem_black1.png" alt=""></div>
+        <div class="spot-title">
+            <h3>Nature Lovers</h3>
+        </div>
+        <div class="wrapper">
+            <div class="block-set">
+                <ul id="responsive">
+                    <li>
+                        <img src="images/lightlsider/lightslider-assets/01_Kea_Photo by Karl Anderson on Unsplash.jpg" />
+                    </li>
+                    <li>
+                        <img src="images/lightlsider/lightslider-assets/02_FoxGlacier_Photo by Jackman Chiu on Unsplash.jpg" />
+                    </li>
+                    <li>
+                        <img src="images/lightlsider/lightslider-assets/03_NZ_pancakeRock.jpg" />
+                    </li>
+                    <li>
+                        <img src="images/lightlsider/lightslider-assets/04_NZ_mirrorLake.jpg" />
+                    </li>
+                    <li>
+                        <img src="images/lightlsider/lightslider-assets/05_NZ_Glenorchy.jpg" />
+                    </li>
+                    <li>
+                        <img src="images/lightlsider/lightslider-assets/06_NZ_milfordSound.jpg">
+                    </li>
+                    <li>
+                        <img src="images/lightlsider/lightslider-assets/07_NZ_nuggetPoint.jpg" />
+                    </li>
+                    <li>
+                        <img src="images/lightlsider/lightslider-assets/08_NZ_southernScenicRoute.jpg" />
+                    </li>
+                    <li>
+                        <img src="images/lightlsider/lightslider-assets/09_NZ_Hooker Valley Track.jpg" />
+                    </li>
+                    <li>
+                        <img src="images/lightlsider/lightslider-assets/10_NZ_Lake Pukaki.jpg" />
+                    </li>
+                    
+                </ul>
+            </div>    
+        </div>
+        
+    </div>
+<!-- break -->
+    <div class="nature-break "></div>
+<!-- Outdoor Adventure -->
+    <div id="outdoor" class="outdoor">
+            <div class="img img-1">
+                <div class="overlay slide-1"></div>
+            </div>
+            <div class="img img-2">
+                <div class="overlay slide-1"></div>
+            </div>
+            <div class="img img-3">
+                <div class="overlay slide-2"></div>
+            </div>
+            <div class="spot-title">
+                <h3>Outdoor<br>Adventure</h3>
+                <p>New Zealand has a very unique and dynamic culture. The culture of its indigenous Māori people affects the language, the arts, and even the accents of all New Zealanders.<br>Their place in the South Pacific, and their love of the outdoors, sport, and the arts make New Zealanders and their culture unique in the world.</p>
+                <div><a name="" id="" class="btn btn-info" href="#" role="button">MORE<i class="fas fa-chevron-right"></i></a></div>
+            </div>    
+        
+    </div>
+    <div class="break"></div>
+<!-- Food -->
+    <div id="food" class="food">
+        <div class="row-top">
+            <div class="img img-0">
+                <div class="overlay"></div>
+                <div class="title">Food<br>Cuisine</div>
+                <p>largely driven by local ingredients and seasonal variations.New Zealand cuisine is historical influences came from British cuisine and Māori culture.</p>
+            </div>
+            <div class="img img-1">
+                <div class="overlay"></div>
+                <div class="food-sm-title">Seafood</div>
+            </div>
+            <div class="img img-2">
+                <div class="overlay"></div>
+                <div class="food-sm-title">Seasonal Delight</div>
+            </div>
+        </div>
+        <div class="row-bottom">
+            <div class="img img-3">
+                <div class="overlay"></div>
+                <div class="food-sm-title">Fruit</div>
+            </div>
+            <div class="img img-4">
+                <div class="overlay"></div>
+                <div class="food-sm-title">Wine</div>
+            </div>
+            <div class="img img-5">
+                <div class="overlay"></div>
+                <div class="food-sm-title">Fries</div>
+            </div>
+            <div class="img img-6">
+                <div class="overlay"></div>
+                <div class="food-sm-title">NZ Style</div>
+            </div>
+        </div>
+    </div>
+<!-- break -->
+    <div class="break"></div>
+<!-- More Information -->
+    <div id="info" class="info" data-page="info">
+        <div id="top" class="top cursor">
+        back<br>to<br>top
+        </div>
+        <div class="wrapper">
+            <ul>
+                <li><a href="https://southernscenicroute.co.nz/" target="_blank"><img src="images/info-1.png" alt=""></a></li>
+                <li><a href="https://www.queenstownnz.co.nz/" target="_blank"><img src="images/info-2.png" alt=""></a></li>
+                <li><a href="https://www.fiordland.org.nz/" target="_blank"><img src="images/info-3.png" alt=""></a></li>
+                <li><a href="https://www.dunedinnz.com/" target="_blank"><img src="images/info-4.png" alt=""></a></li>
+            </ul>    
+            <ul>
+                <li><a href="https://www.cluthanz.com/" target="_blank"><img src="images/info-5.png" alt=""></a></li>
+                <li><a href="https://www.foxguides.co.nz/" target="_blank"><img src="images/info-6.png" alt=""></a></li>
+                <li><a href="https://www.kaikoura.co.nz/" target="_blank"><img src="images/info-7.png" alt=""></a></li>
+                <li><a href="https://www.nelsontasman.nz/" target="_blank"><img src="images/info-8.png" alt=""></a></li>
+            </ul>    
+        </div>
+    </div>
+    
+<!-- footer -->
+    <div id="footer" class="footer">
+        <nav class="nav-footer">
+            <div>
+                <li><a>2020 &copy 2000-2020 New Zealand Tourism</a></li>
+            </div>
+            <div>
+                <li data-page="nz-intro"><a>About</a></li>
+                <li data-page="spot-intro"><a>Discover</a></li>
+                <li data-page="information"><a>Information</a></li>
+            </div>
+        </nav>
+    </div>
+    
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script
+    src="https://code.jquery.com/jquery-3.4.1.min.js"
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+    crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="lightslider-master/src/js/lightslider.js"></script>
+    <script>
+        var scrollLast = 0;
+         windowHeight = $(window).height();
+         documentHeight = $(document).height();
+         bodyHeight = $("body").height();
+         positionIntro = $("#nz-intro").offset().top;
+         positionInfo = $("#info").offset().top;
+         positionFooter = $("#footer").offset().top;
+
+
+        $(window).on({
+            scroll: function(){
+            
+            //header捲動收縮
+                let scrollNow = $(this).scrollTop();
+                
+                if(scrollNow > scrollLast){
+                    $(".header").addClass("active")
+                }else if(scrollNow < scrollLast){
+                    $(".header").removeClass("active")
+                }
+                if(scrollNow < (positionIntro)){
+                    $(".header").removeClass("active")
+                }
+                scrollLast = scrollNow
+
+                
+            }
+        })
+    // logo抖動
+        $(".logo .fas, .logo-fix .fas").on({
+            mouseenter: function(){
+                $(this).addClass("animated shake")
+                $(".logo-fix .fas").addClass("animated shake")
+            },
+            mouseleave: function(){
+                $(this).removeClass("animated shake")
+                $(".logo-fix .fas").removeClass("animated shake")
+            }
+        })
+        
+    //會動的漢堡 & 手機選單overlay
+        $(".menu").on({
+            click: function(){
+
+            console.log($(this))
+                $(this).toggleClass("active")
+                $(".nav-header li").siblings().toggleClass("active");
+                $(".landing-page .overlay").toggleClass("active");
+               
+            }
+        })
+        
+    //點地名跳對應頁面
+        $(".logo, .logo-fix, .nav-header li.menu-move, .landing-page .overlay li, .nav-footer li").on({
+            click: function(){
+                let page = $(this).data("page");
+                let positionPage = $(`#${page}`).offset().top;
+                console.log("click")
+                
+                $("html, body").animate({scrollTop: positionPage},1000)
+            }
+        })
+
+    //手機rwd menu覆蓋
+        $(".landing-page .overlay li").on({
+            click: function(){
+                $(".landing-page .overlay").removeClass("active");
+            }
+        })
+
+    //discover頁面的icon連結
+        $(".spot-intro li").on({
+            click: function(){
+                let icon = $(this).data("icon");
+                let positionIcon = $(`#${icon}`).offset().top;
+                console.log(icon)
+                
+                $("html, body").animate({scrollTop: positionIcon},1000)
+            }
+        })
+
+    // lightslider 商用要收費
+        $(document).ready(function() {
+            $('#responsive').lightSlider({
+                item:3,
+                loop:true,
+                slideMove:4,
+                slideMargin:0,
+                easing: 'cubic-bezier(0.25, 0, 0.25, 1)',
+                speed:600,
+                responsive : [
+                    {
+                        breakpoint:1200,
+                        settings: {
+                            item:2,
+                            slideMove:1,
+                            slideMargin:0,
+                        }
+                    },
+                    {
+                        breakpoint:768,
+                        settings: {
+                            item:1,
+                            slideMove:1
+                        }
+                    }
+                ]
+            });  
+        });
+
+        
+            
+    //top bottom
+        $(window).on({
+            scroll: function(){
+                let scrollNow = $(this).scrollTop();
+                let scrollPercent = Math.round(scrollNow / (documentHeight - windowHeight) *100); 
+                let positionPercentInfo = Math.round(positionInfo / documentHeight*100)
+                
+                if(scrollNow > (windowHeight - 300)){
+                    $("#top").fadeIn(200)
+                }else{
+                    $("#top").stop().fadeOut(200)
+                }
+    //why position的值多出html3000左右...
+                // if(scrollPercent >= positionPercentInfo){
+                //     $("#top").addClass("active")
+                // }
+                // console.log(`scrollPercent: ${scrollPercent},positionPercentInfo: ${positionPercentInfo},positionInfo: ${positionInfo},documentHeight: ${documentHeight},bodyHeight: ${bodyHeight} `)
+            }
+        })
+    
+        $("#top").on("click", function(){
+                $("html, body").animate({scrollTop: 0},1000)
+
+        
+        })
+        
+    </script>
+  </body>
+</html>
